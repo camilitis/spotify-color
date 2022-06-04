@@ -1,46 +1,37 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const WebApp = () => {
 
-const clientId = process.env.REACT_APP_CLIENT_ID_KEY
-const clientSecret = process.env.REACT_APP_CLIENT_SECRET_KEY
-
   const _getGenres = async (token) => {
-
-    const result = await fetch(`https://api.spotify.com/v1/me/top/type`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-    });
-
+    const result = await fetch('https://api.spotify.com/v1/me/top/tracks', {
+      method: 'GET',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer ' + token}
+    })
     const data = await result.json()
-    console.log(data)
-    // return data.categories.items
+    console.log(data.items[0].album.images[0].url)
   }
 
+
+  var [token, setToken] = useState('')
+
   useEffect(() => {
-    console.log(clientId)
-    const _getToken = async () => {
+    const hash = window.location.hash
 
-      const result = await fetch('https://accounts.spotify.com/api/token', {
-          method: 'POST',
-          headers: {
-              'Content-Type' : 'application/x-www-form-urlencoded', 
-              'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
-          },
-          body: 'grant_type=client_credentials'
-      });
-  
-      const data = await result.json()
-      const token = data.access_token
+    if(hash.includes('access_token')) {
+      const newtoken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1]
+
+      window.location.hash = ''
+
+      token = newtoken
+      setToken(token)
       _getGenres(token)
-    }
+console.log(token)
 
-    _getToken()
-  })
+    }
+  }, [])
 
   return (
     <>
