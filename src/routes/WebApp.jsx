@@ -3,15 +3,17 @@ import { useEffect, useState } from 'react'
 
 const WebApp = () => {
 
-  const _getGenres = async (token) => {
-    const result = await fetch('https://api.spotify.com/v1/me/top/tracks', {
+  const [albums, setAlbums] = useState([])
+
+  const getUserInfo = async (token) => {
+    const result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10', {
       method: 'GET',
       headers: { 
         'Content-Type': 'application/json',
         'Authorization' : 'Bearer ' + token}
     })
     const data = await result.json()
-    console.log(data.items[0].album.images[0].url)
+    setAlbums(data.items)
   }
 
 
@@ -27,16 +29,23 @@ const WebApp = () => {
 
       token = newtoken
       setToken(token)
-      _getGenres(token)
-console.log(token)
-
+      getUserInfo(token)
     }
   }, [])
 
   return (
-    <>
-    {/* {token} */}
-    </>
+    <ul className='list-group'>
+      {albums.map((song) => (
+      <li
+        key={song.id}
+        className='list-group-item'>
+        <h1>{song.name}</h1>
+        <img
+        src={song.album.images[0].url}
+        className='img-thumbnail'></img>
+        </li>
+      ))}
+  </ul>
   )
 }
 

@@ -9,7 +9,7 @@ const SignIn = () => {
 
   return (
     <>
-      <a href={`${AUTH_ENDPOINT}?response_type=token&client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&state=${STATE}`} className='btn btn-success m-4'>Log in with Spotify</a>
+      <a href={`${AUTH_ENDPOINT}?time_range=long_term&response_type=token&client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&state=${STATE}`} className='btn btn-success m-4'>Log in with Spotify</a>
     </>
   )
 }
