@@ -4,12 +4,10 @@ import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <h1>Your Spotify Pantone</h1>
+      <h1>Your Spotify Colors</h1>
       <Outlet />
-      <p>Get your Pantone color based on the album covers of your Spotify charts.</p>
-
       <hr></hr>
-
+      <p>Get your colors based on the album covers of your Spotify charts.</p>
       <footer>
         Made by <a href='https://www.instagram.com/camipalo' className='link-secondary'>Camila</a>.
         <br></br>

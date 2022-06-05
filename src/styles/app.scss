@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 body {
   margin: 0;
@@ -19,4 +20,12 @@ hr{
   margin: 10px 0;
 }
 
-img{ width:200px}
+.webApp{
+  &-buttons{
+    margin: auto;
+    padding: 10px;
+    button+button{
+      margin: 0 10px;
+    }
+  }
+}

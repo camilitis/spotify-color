@@ -1,51 +1,71 @@
 import Color, { Palette } from "color-thief-react"
+import { useEffect, useState } from "react"
+import '../styles/covercolorinfo.scss'
 
 const Loading = () => <div>Loading...</div>
 
 export default function App( {albumsInfo, albumsURL} ) {
   var i = 0
 
-console.log(albumsInfo)
+  var colors = []
+
+  useEffect(() => {
+    colors = []
+  }, [albumsInfo])
+
+  const [averageColor, setAverageColor] = useState(null)
+
+  useEffect(() => {
+    const colorshex = colors.filter(function(item, pos) {
+      return colors.indexOf(item) == pos
+    })
+
+    console.log(colorshex)
+
+    setTimeout(() => {
+      const averageColor = require('@bencevans/color-array-average')
+      setAverageColor(averageColor(colorshex))
+    }, 1000)
+  }, [colors])
 
   return (
     <div className="CoverColor">
-      <section className="container-sm">
+      <section className="container">
+
+        <h3 style={averageColor != null ? {backgroundColor: averageColor} : {}}>AVERAGE COLOR</h3>
         {albumsInfo.map((album) => (
           <Palette src={album.album.images[0].url} key={'palette' + i++} crossOrigin="anonymous" format="hex" colorCount={4}>
             {({ data, loading }) => {
               if (loading) return <Loading />
               return (
-                <>
-                <h2>{album.album.name}</h2>
-                {album.album.artists.map((artist) => (
-                  <h4 key={artist.name + i++}>{artist.name}</h4>
-                ))}
-                <img src={album.album.images[0].url}></img>
-                  <h4>Palette:</h4>
-                  <ul>
+                <div className='card'>
+                <p className='card-song-name'>{album.name}</p>
+
+                <div className='card-artist'>
+                  {album.album.artists.map((artist) => (
+                      <span key={artist.name + i++} className='card-artist-name'>{artist.name}</span>
+                    ))}
+                </div>
+
+                <img src={album.album.images[0].url} className='img-thumbnail'></img>
+                  <div className="card-color-palette-complete">
                     {data.map((color, index) => (
-                      <span key={index} style={{ color: color }}>
-                        <strong>{color}</strong>
+                      <span key={index} style={{ color: color }} className='card-color-palette'>
+                        <div className='card-color-color' style={{ backgroundColor: color }}></div>
                       </span>
                     ))}
-                  </ul>
-                </>
-              );
+                  </div>
+                </div>
+              )
             }}
           </Palette>
         ))}
       </section>
 
-
       {albumsURL.map((album) => (
         <Color src={album} key={'color' + i++} crossOrigin="anonymous" format="hex">
-          {({ data, loading }) => {
-            if (loading) return <Loading />
-            return (
-              <div>
-                Predominant color {i++}: <span style={{color: data}}><strong>{data}</strong></span>
-              </div>
-            );
+          {({ data }) => {
+            colors.push(data)
           }}
         </Color>
       ))}

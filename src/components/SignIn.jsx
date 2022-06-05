@@ -14,6 +14,4 @@ const SignIn = () => {
   )
 }
 
-//*Use hook to get token from localStorage
-
 export default SignIn
