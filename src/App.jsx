@@ -4,10 +4,9 @@ import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <h1>Your Spotify Colors</h1>
+      <h1><a href='https://spotify-color.vercel.app/' className='link-light'>Your Spotify Colors</a></h1>
       <Outlet />
       <hr></hr>
-      <p>Get your colors based on the album covers of your Spotify charts.</p>
       <footer>
         Made by <a href='https://www.instagram.com/camipalo' className='link-secondary'>Camila</a>.
         <br></br>

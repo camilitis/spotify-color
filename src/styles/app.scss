@@ -14,18 +14,24 @@ h1{
   margin: 0;
   padding: 10px 0 15px 0;
   background-color: #212529;
-  color: whitesmoke;
+  a{
+    text-decoration: none;
+  }
 }
 hr{
   margin: 10px 0;
 }
 
+h4{
+  margin: 10px;
+}
+
 .webApp{
   &-buttons{
+    width: 400px;
     margin: auto;
-    padding: 10px;
-    button+button{
-      margin: 0 10px;
+    button{
+      margin: 10px;
     }
   }
 }

@@ -16,25 +16,41 @@ const WebApp = () => {
       token = newtoken
       setToken(token)
       getUserInfo(token)
+      getAlbumsInfo(token)
     }
   }, [])
+
+//! USE HOOKS FOR REQUEST !
+  const [username, setUsername] = useState(null)
+
+  const getUserInfo = async (token) => {
+    const result = await fetch(`https://api.spotify.com/v1/me`, {
+      method: 'GET',
+      headers: {'Authorization' : 'Bearer ' + token}
+    })
+    const userinfo = await result.json()
+
+    setUsername(userinfo.display_name)
+  }
+
 
   const [albumsInfo, setAlbumsInfo] = useState([])
   const [timeRange, setTimeRange] = useState('short_term')
 
-  const getUserInfo = async (token) => {
+  const getAlbumsInfo = async (token) => {
     const result = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=8`, {
       method: 'GET',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'Authorization' : 'Bearer ' + token}
     })
     const data = await result.json()
     setAlbumsInfo(data.items)
   }
+//! USE HOOKS FOR REQUEST !
 
   useEffect(() => {
-    getUserInfo(token)
+    getAlbumsInfo(token)
   }, [timeRange])
 
   const albumsURL = albumsInfo.map(album => album.album.images[0].url)
@@ -42,9 +58,9 @@ const WebApp = () => {
   return (
     <>
       <div className='webApp-buttons'>
-        <button type='button' onClick={() => setTimeRange('short_term')} className={timeRange == 'short_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Month</button>
-        <button type='button' onClick={() => setTimeRange('medium_term')} className={timeRange == 'medium_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last 6 Months</button>
-        <button type='button' onClick={() => setTimeRange('long_term')} className={timeRange == 'long_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Year</button>
+        <button type='button' onClick={() => setTimeRange('short_term')} className={timeRange === 'short_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Month</button>
+        <button type='button' onClick={() => setTimeRange('medium_term')} className={timeRange === 'medium_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last 6 Months</button>
+        <button type='button' onClick={() => setTimeRange('long_term')} className={timeRange === 'long_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Year</button>
       </div>
 
       <CoverColorInfo albumsURL={albumsURL} albumsInfo={albumsInfo} />

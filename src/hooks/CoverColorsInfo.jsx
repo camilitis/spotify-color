@@ -1,10 +1,13 @@
 import Color, { Palette } from "color-thief-react"
 import { useEffect, useState } from "react"
+import PantoneColor from "../components/PantoneColor"
 import '../styles/covercolorinfo.scss'
 
 const Loading = () => <div>Loading...</div>
 
 export default function App( {albumsInfo, albumsURL} ) {
+  const getAverageColor = require('@bencevans/color-array-average')
+
   var i = 0
 
   var colors = []
@@ -16,23 +19,21 @@ export default function App( {albumsInfo, albumsURL} ) {
   const [averageColor, setAverageColor] = useState(null)
 
   useEffect(() => {
-    const colorshex = colors.filter(function(item, pos) {
-      return colors.indexOf(item) == pos
-    })
-
-    console.log(colorshex)
-
     setTimeout(() => {
-      const averageColor = require('@bencevans/color-array-average')
-      setAverageColor(averageColor(colorshex))
+      const filteredcolors = colors.filter(item => item !== undefined)
+
+      console.log(filteredcolors)
+      setAverageColor(getAverageColor(filteredcolors))
     }, 1000)
   }, [colors])
 
+
   return (
     <div className="CoverColor">
-      <section className="container">
 
-        <h3 style={averageColor != null ? {backgroundColor: averageColor} : {}}>AVERAGE COLOR</h3>
+    <PantoneColor averageColor={averageColor}/>
+
+      <section className="container">
         {albumsInfo.map((album) => (
           <Palette src={album.album.images[0].url} key={'palette' + i++} crossOrigin="anonymous" format="hex" colorCount={4}>
             {({ data, loading }) => {
