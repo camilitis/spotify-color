@@ -4,7 +4,7 @@ import SignIn from '../components/SignIn'
 const Home = () => {
   return (
     <>
-      <h4>Get your Spotify color based on the album covers of your charts.</h4>
+      <h4>Get a color based on your Spotify charts</h4>
       <SignIn />
     </>
   )

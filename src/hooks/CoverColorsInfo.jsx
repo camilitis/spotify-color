@@ -3,12 +3,10 @@ import { useEffect, useState } from "react"
 import PantoneColor from "../components/PantoneColor"
 import '../styles/covercolorinfo.scss'
 
-const Loading = () => <div>Loading...</div>
+const LoadingAverageColor = () => <h2 className='loading'>Loading your unique average color...</h2>
 
 export default function App( {albumsInfo, albumsURL} ) {
   const getAverageColor = require('@bencevans/color-array-average')
-
-  var i = 0
 
   var colors = []
 
@@ -18,26 +16,34 @@ export default function App( {albumsInfo, albumsURL} ) {
 
   const [averageColor, setAverageColor] = useState(null)
 
+  const [averageColorLoading, setAverageColorLoading] = useState(true)
+
   useEffect(() => {
+
     setTimeout(() => {
       const filteredcolors = colors.filter(item => item !== undefined)
-
-      console.log(filteredcolors)
       setAverageColor(getAverageColor(filteredcolors))
-    }, 1000)
+
+      if(filteredcolors.length > 0){
+        setAverageColorLoading(false)
+      }
+
+    }, 500)
+
   }, [colors])
 
+  var i = 0
 
   return (
     <div className="CoverColor">
 
-    <PantoneColor averageColor={averageColor}/>
+      {averageColorLoading ? <LoadingAverageColor /> : <PantoneColor color={averageColor} />}
 
       <section className="container">
         {albumsInfo.map((album) => (
           <Palette src={album.album.images[0].url} key={'palette' + i++} crossOrigin="anonymous" format="hex" colorCount={4}>
-            {({ data, loading }) => {
-              if (loading) return <Loading />
+            { ({data, loading}) => {
+              if(loading) return undefined
               return (
                 <div className='card'>
                 <p className='card-song-name'>{album.name}</p>

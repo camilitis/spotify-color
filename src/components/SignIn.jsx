@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SignIn = () => {
-  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID_KEY
+  const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID_KEY
   const REDIRECT_URI = 'http://localhost:3000/webapp'
   var STATE = Date.now()
   var SCOPE = 'user-read-private user-read-email user-top-read user-follow-read'
