@@ -1,14 +1,18 @@
 $main-font: Helvetica, sans-serif;
 
+button{
+  margin: 15px;
+}
+
+.pantone-section{
+  width: 100vw;
+}
+
 .pantoneContainer{
-  // width: 100vw;
-  // height: 100vh;
-  // margin: 0;
-  // padding: 0;
-  // position: absolute;
-  // z-index: 300;
-  // top: 0;
-  // left: 0;
+  height: 750px;
+  width: 421px;
+  margin: auto;
+  display: flex;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
    -khtml-user-select: none;
@@ -23,8 +27,8 @@ $main-font: Helvetica, sans-serif;
   }
 
   div.wrapper {
-    margin: 20px auto;
-    max-width: 350px;
+    margin: auto;
+    width: 350px;
   }
   div.swatch {
     border: 1px solid #fff;
@@ -39,7 +43,7 @@ $main-font: Helvetica, sans-serif;
     padding: 15px 10px 35px 10px;
     position: relative;
   }
-  h1, .range-slider__value {
+  h1{
     font-size: 21px;
     color: rgba(255, 255, 255, 0.6);
     font-weight: bold;
@@ -67,5 +71,39 @@ $main-font: Helvetica, sans-serif;
     font-size: 16px;
     position: absolute;
     top: 7px;
+  }
+}
+
+@media screen and (max-width: 950px){
+  .pantoneContainer{
+    height: 720px;
+    width: 100vw;
+    div.description {
+      padding: 8px;
+    }
+
+    h2, h3 {
+      line-height: 1em;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    sup {
+      font-size: 14px;
+      top: 28px;
+    }
+  }
+  .pantone-container{
+    width: 600px;
+    height: 365px;
+  }
+
+  div.swatch {
+    width: 270px;
+    margin: auto;
   }
 }

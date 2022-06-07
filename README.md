@@ -1,7 +1,9 @@
 # Your Spotify Pantone color
 - Log in with spotify
-- Get most played songs of the week/month/all time
-- Get album covers of it
-- Scan color of each album cover
-- Get a combination of all album convers combine
-- Post it as PantoneColor
+- Get most played songs with Spotify API
+- Get album covers of those songs
+- Scan color of each album cover with color-thief-react
+- Get an average color of those album covers with bencevans/color-array-average
+- Get final color as Pantene color
+- Convert div to canvas with html2canvas
+- Download with downloadjs

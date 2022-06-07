@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import PantoneColor from "../components/PantoneColor"
 import '../styles/covercolorinfo.scss'
 
-const LoadingAverageColor = () => <h2 className='loading'>Loading your unique average color...</h2>
+const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
 
 export default function App( {albumsInfo, albumsURL} ) {
   const getAverageColor = require('@bencevans/color-array-average')
