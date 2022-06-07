@@ -1,0 +1,69 @@
+.albums-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card{
+  width: 210px;
+  height: 100%;
+  margin: 15px;
+  align-items: center;
+  display: grid;
+  grid-template-rows: .5fr 1fr .3fr;
+  grid-template-areas:
+    "name"
+    "album-cover"
+    "palette";
+  img{
+    margin: 10px auto;
+    max-width: 155px;
+  }
+
+  &-songname{
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 190px;
+  }
+
+  &-artistname{
+    font-size: 16px;
+    span+span::before{
+      content: ' - ';
+    }
+  }
+
+  &-info{
+    grid-area: name;
+  }
+
+  &-img{
+    grid-area: album-cover;
+  }
+
+  &-palette-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+    &-palette{
+    grid-area: palette;
+  }
+
+  &-color{
+  width: 35px;
+  height: 35px;
+  margin: 0 7px;
+  border-radius: 50%;
+  }
+}

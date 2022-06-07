@@ -1,91 +1,87 @@
-$main-font: Helvetica, sans-serif;
-
 button{
   margin: 15px;
 }
 
-.pantone-section{
-  width: 100vw;
-}
-
-.pantoneContainer{
-  height: 750px;
-  width: 421px;
-  margin: auto;
-  display: flex;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-   -khtml-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-
-  * {
-    &, &:before, &:after {
-      box-sizing: border-box;
-    }
+.pantone{
+  &-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
-  div.wrapper {
+  &-canvas{
+    height: 750px;
+    width: 420px;
     margin: auto;
-    width: 350px;
-  }
-  div.swatch {
-    border: 1px solid #fff;
-    box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.1);
-  }
-  div.color {
-    width: 270px;
-    height: 300px;
-  }
-  div.description {
-    background: white;
-    padding: 15px 10px 35px 10px;
-    position: relative;
-  }
-  h1{
-    font-size: 21px;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 0.1em;
-    margin: 40px 0;
-  }
-  h1,
-  h2,
-  h3 {
-    line-height: 1.2em;
-  }
-  h1,
-  h2 {
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 38px;
-  }
-  h3 {
-    font-size: 21px;
-  }
-  sup {
-    font-size: 16px;
-    position: absolute;
-    top: 7px;
+    display: flex;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  
+    div.wrapper {
+      margin: auto;
+      width: 350px;
+    }
+    div.swatch {
+      border: 1px solid #fff;
+      box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.1);
+    }
+    div.color {
+      width: 270px;
+      height: 300px;
+    }
+    div.description {
+      background: white;
+      padding: 15px 10px 35px 10px;
+      position: relative;
+    }
+    h1{
+      font-size: 21px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin: 40px 0;
+    }
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2em;
+    }
+    h1,
+    h2 {
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 38px;
+    }
+    h3 {
+      font-size: 21px;
+    }
+    sup {
+      font-size: 16px;
+      position: absolute;
+      top: 40px;
+    }
   }
 }
 
 @media screen and (max-width: 950px){
-  .pantoneContainer{
+  .pantone-canvas{
     height: 720px;
     width: 100vw;
-    div.description {
+    div.description{
       padding: 8px;
     }
 
     h2, h3 {
       line-height: 1em;
     }
-    h2 {
+    h2{
       font-weight: bold;
       font-size: 32px;
     }
@@ -96,10 +92,6 @@ button{
       font-size: 14px;
       top: 28px;
     }
-  }
-  .pantone-container{
-    width: 600px;
-    height: 365px;
   }
 
   div.swatch {

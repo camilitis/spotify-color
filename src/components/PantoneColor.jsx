@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import downloadjs from 'downloadjs'
 import html2canvas from 'html2canvas'
 import '../styles/pantonecolor.scss'
+import { datenumber } from '../hooks/useDate.js'
 
 const PantoneColor = (averageColor) => {
 
@@ -30,15 +31,15 @@ const PantoneColor = (averageColor) => {
   //TODO change last month dynamically
   return (
     <>
-      <section className='pantone-section' style={{backgroundColor: newColor}}>
-        <div style={{backgroundColor: newColor}} className='pantoneContainer' id='canvas'>
+      <section className='pantone-container' style={{backgroundColor: newColor}}>
+        <div style={{backgroundColor: newColor}} className='pantone-canvas' id='canvas'>
           <div className="wrapper">
             <div className="swatch">
               <div className="color"></div>
               <div className="description">
                 <h3>My spotify</h3>
                 <h2>PANTONE<sup>&reg;</sup></h2>
-                <h3 className="swatch-number">15-4020</h3>
+                <h3 className="swatch-number">{datenumber}</h3>
                 <h3 className="color-name">Last month</h3>
               </div>
             </div>

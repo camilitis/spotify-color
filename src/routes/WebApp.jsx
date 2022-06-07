@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import CoverColorInfo from '../hooks/CoverColorsInfo'
+import CoverColorInfo from '../components/CoverColorsInfo'
 
 const WebApp = () => {
   var [token, setToken] = useState('')
@@ -24,7 +24,7 @@ const WebApp = () => {
   const [timeRange, setTimeRange] = useState('short_term')
 
   const getAlbumsInfo = async (token) => {
-    const result = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=8`, {
+    const result = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=10`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

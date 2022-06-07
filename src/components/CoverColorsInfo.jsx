@@ -1,7 +1,7 @@
 import Color, { Palette } from "color-thief-react"
 import { useEffect, useState } from "react"
 import PantoneColor from "../components/PantoneColor"
-import '../styles/covercolorinfo.scss'
+import '../styles/albumsInfo.scss'
 
 const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
 
@@ -15,7 +15,6 @@ export default function App( {albumsInfo, albumsURL} ) {
   }, [albumsInfo])
 
   const [averageColor, setAverageColor] = useState(null)
-
   const [averageColorLoading, setAverageColorLoading] = useState(true)
 
   useEffect(() => {
@@ -35,30 +34,34 @@ export default function App( {albumsInfo, albumsURL} ) {
   var i = 0
 
   return (
-    <div className="CoverColor">
+    <>
 
       {averageColorLoading ? <LoadingAverageColor /> : <PantoneColor color={averageColor} />}
 
-      <section className="container">
+      <section className="albums-container">
         {albumsInfo.map((album) => (
           <Palette src={album.album.images[0].url} key={'palette' + i++} crossOrigin="anonymous" format="hex" colorCount={4}>
             { ({data, loading}) => {
               if(loading) return undefined
               return (
                 <div className='card'>
-                <p className='card-song-name'>{album.name}</p>
+                  <div className="card-info">
+                    <p className='card-songname'>{album.name}</p>
 
-                <div className='card-artist'>
-                  {album.album.artists.map((artist) => (
-                      <span key={artist.name + i++} className='card-artist-name'>{artist.name}</span>
-                    ))}
-                </div>
+                    <div className='card-artistname'>
+                      {album.album.artists.map((artist) => (
+                          <span key={artist.name + i++} className='card-artist-name'>{artist.name}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
 
-                <img src={album.album.images[0].url} className='img-thumbnail'></img>
-                  <div className="card-color-palette-complete">
+
+                  <img src={album.album.images[0].url} className='img-thumbnail card-img'></img>
+                  <div className="card-palette-container">
                     {data.map((color, index) => (
-                      <span key={index} style={{ color: color }} className='card-color-palette'>
-                        <div className='card-color-color' style={{ backgroundColor: color }}></div>
+                      <span key={index} style={{ color: color }}>
+                        <div className='card-color' style={{ backgroundColor: color }}></div>
                       </span>
                     ))}
                   </div>
@@ -76,6 +79,6 @@ export default function App( {albumsInfo, albumsURL} ) {
           }}
         </Color>
       ))}
-    </div>
+    </>
   )
 }
