@@ -7,6 +7,7 @@ import { datenumber } from '../hooks/useDate.js'
 const PantoneColor = (averageColor) => {
 
   const [newColor, setNewColor] = useState('white')
+  const [canvasURL, setCanvasURL] = useState(null)
 
   useEffect(() => {
     setNewColor(Object.values(averageColor))
@@ -19,16 +20,17 @@ const PantoneColor = (averageColor) => {
         html2canvas(document.getElementById('canvas')).then(function(canvas) {
             const dataURL = canvas.toDataURL('image/png')
             downloadjs(dataURL, 'mySpotifyColor.png', 'image/png')
+            setCanvasURL(dataURL)
         })
     } else{
         html2canvas(document.getElementById('canvas')).then(function(canvas) {
           const dataURL = canvas.toDataURL('image/png')
           downloadjs(dataURL, 'mySpotifyColo2r.png', 'image/png')
+          setCanvasURL(dataURL)
         })
     }
   }
 
-  //TODO change last month dynamically
   return (
     <>
       <section className='pantone-container' style={{backgroundColor: newColor}}>

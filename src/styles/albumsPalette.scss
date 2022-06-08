@@ -67,3 +67,45 @@
   border-radius: 50%;
   }
 }
+
+@media screen and (max-width: 950px){
+  .albums-container{
+    max-width: 100vw;
+  }
+
+  .card{
+    width: 180px;
+    height: 100%;
+    margin: 5px;
+    grid-template-rows: .5fr 1fr .3fr;
+    img{
+      margin: 5px auto;
+      max-width: 155px;
+    }
+  
+    &-songname{
+      font-size: 18px;
+      width: 170px;
+      margin: auto;
+    }
+    &-artistname{
+      font-size: 15px;
+      width: 170px;
+    }
+    &-palette-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+  
+    &-color{
+    width: 30px;
+    height: 30px;
+    margin: 0 6px;
+    border-radius: 50%;
+    }
+  }
+}

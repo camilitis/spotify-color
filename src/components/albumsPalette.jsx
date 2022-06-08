@@ -1,7 +1,7 @@
 import Color, { Palette } from "color-thief-react"
 import { useEffect, useState } from "react"
-import PantoneColor from "../components/PantoneColor"
-import '../styles/albumsInfo.scss'
+import PantoneColor from "./PantoneColor"
+import '../styles/albumsPalette.scss'
 
 const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
 

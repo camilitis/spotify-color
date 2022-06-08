@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import CoverColorInfo from '../components/CoverColorsInfo'
+import CoverColorInfo from '../components/albumsPalette'
 
 const WebApp = () => {
   var [token, setToken] = useState('')
