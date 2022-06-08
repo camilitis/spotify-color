@@ -71,31 +71,38 @@ button{
 }
 
 @media screen and (max-width: 950px){
-  .pantone-canvas{
-    height: 720px;
-    width: 100vw;
-    div.description{
-      padding: 8px;
+  .pantone{
+    &-canvas{
+      margin: auto;
+      height: 720px;
+      width: 100vw;
+      div.description{
+        padding: 8px;
+      }
+  
+      h2, h3 {
+        line-height: 1em;
+      }
+      h2{
+        font-weight: bold;
+        font-size: 30px;
+      }
+      h3 {
+        font-size: 14px;
+      }
+      sup {
+        font-size: 12px;
+        top: 28px;
+      }
+  
+      div.color {
+        height: 230px;
+      }
+  
+      div.swatch {
+        width: 220px;
+        margin: auto;
+      }
     }
-
-    h2, h3 {
-      line-height: 1em;
-    }
-    h2{
-      font-weight: bold;
-      font-size: 32px;
-    }
-    h3 {
-      font-size: 16px;
-    }
-    sup {
-      font-size: 14px;
-      top: 28px;
-    }
-  }
-
-  div.swatch {
-    width: 270px;
-    margin: auto;
   }
 }
