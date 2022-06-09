@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 import PantoneColor from "./PantoneColor"
 import '../styles/albumsPalette.scss'
 
-const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
-
 const AlbumsPalette = ({ albumsInfo, albumsURL }) => {
+  const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
+
   const getAverageColor = require('@bencevans/color-array-average')
 
   var colors = []
