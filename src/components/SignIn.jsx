@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link } from "react-router-dom";
+// import { Route, Link } from "react-router-dom";
 
 const SignIn = () => {
   const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID_KEY

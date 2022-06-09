@@ -5,11 +5,11 @@ import '../styles/app.scss'
 const LastFM = () => {
   const i = 0
 
+  const [LASTFM_USER, setLASTFM_USER] = useState(null)
   const [timeRange, setTimeRange] = useState('7day')
   const [albumsInfo, setAlbumsInfo] = useState([])
 
   useEffect(() => {
-      const LASTFM_USER = 'camilitis1'
       const LASTFM_API_KEY = process.env.REACT_APP_LASTFM_CLIENT_API_KEY
       fetch(`http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&limit=10&period=${timeRange}&format=json`, {
         method: 'GET'}).then(res => res.json())
@@ -26,10 +26,6 @@ const LastFM = () => {
       <input type="text" placeholder="Enter Last.fm username" className="form-control" />
       <button type='button' className='btn btn-dark'>Submit</button>
       </form>
-
-    <div className='aspect'>
-
-    </div>
 
       <div className='timerange-buttons'>
         <button onClick={() => setTimeRange('7day')} className={timeRange == '7day' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last 7 Days</button>
