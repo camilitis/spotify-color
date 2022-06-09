@@ -14,21 +14,11 @@ const PantoneColor = (averageColor) => {
   }, [averageColor])
 
   function handleCaptureClick(){
-    let window_width = window.innerWidth
-
-    if (window_width >= 1024){
-        html2canvas(document.getElementById('canvas')).then(function(canvas) {
-            const dataURL = canvas.toDataURL('image/png')
-            downloadjs(dataURL, 'mySpotifyColor.png', 'image/png')
-            setCanvasURL(dataURL)
-        })
-    } else{
-        html2canvas(document.getElementById('canvas')).then(function(canvas) {
-          const dataURL = canvas.toDataURL('image/png')
-          downloadjs(dataURL, 'mySpotifyColo2r.png', 'image/png')
-          setCanvasURL(dataURL)
-        })
-    }
+    html2canvas(document.getElementById('canvas')).then(function(canvas) {
+      const dataURL = canvas.toDataURL('image/png')
+      downloadjs(dataURL, 'mySpotifyColor.png', 'image/png')
+      setCanvasURL(dataURL)
+    })
   }
 
   return (

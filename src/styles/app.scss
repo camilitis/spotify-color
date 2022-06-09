@@ -44,6 +44,13 @@ footer{
   margin: 20px;
 }
 
+.aspect{
+  width: 500px;
+  background-color: olive;
+  aspect-ratio: 9/16;
+  margin: auto;
+}
+
 
 @media screen and (max-width: 950px){
   .webApp{
