@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import CoverColorInfo from '../components/albumsPalette'
+import AlbumsPalette from '../components/AlbumsPalette'
 
 const WebApp = () => {
   var [token, setToken] = useState('')
@@ -49,7 +49,7 @@ const WebApp = () => {
         <button type='button' onClick={() => setTimeRange('long_term')} className={timeRange == 'long_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Year</button>
       </div>
 
-      <CoverColorInfo albumsURL={albumsURL} albumsInfo={albumsInfo} />
+      <AlbumsPalette albumsURL={albumsURL} albumsInfo={albumsInfo} />
     </>
   )
 }
