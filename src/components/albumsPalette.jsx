@@ -5,7 +5,7 @@ import '../styles/albumsPalette.scss'
 
 const LoadingAverageColor = () => <h2 className='loading'>Getting your unique color...</h2>
 
-export default function App( {albumsInfo, albumsURL} ) {
+const AlbumsPalette = ({ albumsInfo, albumsURL }) => {
   const getAverageColor = require('@bencevans/color-array-average')
 
   var colors = []
@@ -57,7 +57,7 @@ export default function App( {albumsInfo, albumsURL} ) {
                   </div>
 
 
-                  <img src={album.album.images[0].url} className='img-thumbnail card-img'></img>
+                  <img src={album.album.images[0].url} alt={album.album} className='img-thumbnail card-img'></img>
                   <div className="card-palette-container">
                     {data.map((color, index) => (
                       <span key={index} style={{ color: color }}>
@@ -82,3 +82,5 @@ export default function App( {albumsInfo, albumsURL} ) {
     </>
   )
 }
+
+export default AlbumsPalette
