@@ -10,7 +10,7 @@ import Home from './routes/Home';
 import WebApp from './routes/WebApp';
 import LastFM from './routes/LastFM';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -24,6 +24,6 @@ root.render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
-);
+)
 
 reportWebVitals()

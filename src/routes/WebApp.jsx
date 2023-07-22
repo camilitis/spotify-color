@@ -44,9 +44,9 @@ const WebApp = () => {
   return (
     <>
       <div className='webApp-buttons'>
-        <button type='button' onClick={() => setTimeRange('short_term')} className={timeRange == 'short_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Month</button>
-        <button type='button' onClick={() => setTimeRange('medium_term')} className={timeRange == 'medium_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last 6 Months</button>
-        <button type='button' onClick={() => setTimeRange('long_term')} className={timeRange == 'long_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Year</button>
+        <button type='button' onClick={() => setTimeRange('short_term')} className={timeRange === 'short_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Month</button>
+        <button type='button' onClick={() => setTimeRange('medium_term')} className={timeRange === 'medium_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last 6 Months</button>
+        <button type='button' onClick={() => setTimeRange('long_term')} className={timeRange === 'long_term' ? 'btn btn-outline-dark active' : 'btn btn-outline-dark'}>Last Year</button>
       </div>
 
       <AlbumsPalette albumsURL={albumsURL} albumsInfo={albumsInfo} />
