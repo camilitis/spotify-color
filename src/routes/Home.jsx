@@ -10,7 +10,4 @@ const Home = () => {
   )
 }
 
-//*TO DO LIST:
-//-> create hook for spotify request
-
 export default Home

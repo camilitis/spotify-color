@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <h1><a href='https://spotify-color.vercel.app/' className='link-light'>Your Spotify color</a></h1>
+      <h1><a href='https://spotify-color.vercel.app/' className='link-light'>My Spotify color</a></h1>
       <Outlet />
       <hr></hr>
       <footer>
