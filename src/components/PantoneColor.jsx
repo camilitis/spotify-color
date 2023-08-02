@@ -15,7 +15,7 @@ const PantoneColor = (averageColor) => {
   function handleCaptureClick(){
     html2canvas(document.getElementById('canvas')).then(function(canvas) {
       const dataURL = canvas.toDataURL('image/png')
-      downloadjs(dataURL, 'mySpotifyColor.png', 'image/png')
+      downloadjs(dataURL, 'mysongscolor.png', 'image/png')
     })
   }
 
