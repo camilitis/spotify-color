@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <h1><a href='/' className='link-light'>My Songs Color</a></h1>
+      <h1><a href='/' className='link-light'>My Spotify Color</a></h1>
       <Outlet />
       <hr></hr>
       <footer>

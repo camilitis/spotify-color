@@ -3,7 +3,7 @@ import React from 'react'
 
 const SignIn = () => {
   const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID_KEY
-  const REDIRECT_URI = 'https://mysongscolor.vercel.app/webapp' 
+  const REDIRECT_URI = 'https://spotify-color.vercel.app/webapp' 
   var STATE = Date.now()
   var SCOPE = 'user-read-private user-read-email user-top-read user-follow-read'
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
